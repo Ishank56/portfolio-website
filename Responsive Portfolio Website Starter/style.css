@@ -138,6 +138,7 @@ main h1 {
   font-weight: 600;
 }
 
+/*------------------Main-----------------------*/
 
 .content-container {
   margin-top: 0;
@@ -228,39 +229,7 @@ main h1 {
 #spline-viewer {
   transform-origin: center; /* Ensure the animation originates from the center */
 }
-.planet-wrapper {
-  position: absolute;
-  top: -75px;
-  left: -25px;
-  width: 100%;
-  height: 130%;
-  transform: translateY(-140px);
-  z-index: -1;
-}
 
-/* Adjust the Spline model inside the wrapper */
-.planet-3d {
-  width: 100%;
-  height: 100%;
-}
-
-/* Zoom out animation on wrapper */
-@keyframes zoomOut {
-  0% {
-    transform: scale(1) translateY(-140px);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(0.1) translateY(-140px);
-    opacity: 0;
-  }
-}
-
-/* Trigger class */
-.planet-wrapper.zoom-out {
-  animation: zoomOut 1s ease-in-out forwards;
-  transform-origin: center;
-}
 /*-----------------About us-----------------------*/
 
 section {
@@ -677,10 +646,10 @@ section {
 
 .projects-box {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust grid for responsiveness */
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   place-items: center;
-  gap: 2rem; /* Reduce gap for smaller screens */
-  row-gap: 3rem;
+  gap: 3rem;
+  row-gap: 5rem;
 }
 
 .project-card {
@@ -721,29 +690,6 @@ section {
 
 .project-card p {
   font-size: 1.6rem;
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-  .projects-box {
-    grid-template-columns: 1fr; /* Stack projects vertically on smaller screens */
-    gap: 1.5rem; /* Reduce gap between project cards */
-  }
-
-  .project-card {
-    width: 90%; /* Make project cards take up most of the screen width */
-  }
-}
-
-@media (max-width: 480px) {
-  .projects-box {
-    grid-template-columns: 1fr; /* Keep projects stacked vertically */
-    gap: 1rem; /* Further reduce gap for very small screens */
-  }
-
-  .project-card {
-    width: 95%; /* Slightly reduce width for very small screens */
-  }
 }
 
 .contact {
