@@ -16,3 +16,845 @@ html {
   font-size: 60%;
   overflow-x: hidden;
 }
+
+/*--------------------Header----------------------*/
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+#menu-icon {
+  font-size: 3.5rem;
+  color: var(--main-color);
+  display: none;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  font-weight: 300;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.logo:hover {
+  transform: scale(1.1);
+}
+
+span {
+  background: linear-gradient(270deg, #df8908 10%, #ff1d15 100%);
+
+  background-clip: text;
+  color: transparent;
+}
+
+.navbar a {
+  font-size: 1.8rem;
+  color: var(--text-color);
+  margin-left: 4rem;
+  font-weight: 500;
+  transition: 0.3s ease-in-out;
+  border-bottom: 3px solid transparent;
+}
+
+.navbar a:hover {
+  color: var(--main-color);
+  border-bottom: 3px solid var(--main-color);
+}
+
+.gradient-btn {
+  font-size: 1.8rem;
+  padding: 1rem 2rem;
+  border-radius: 3rem;
+  background: linear-gradient(270deg, #df8908 10%, #ff1d15 100%);
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  color: white;
+  border: none;
+  text-wrap: nowrap;
+}
+.gradient-btn:hover {
+  transform: scale(1.05);
+}
+
+/*-----------------Main-----------------------*/
+
+main {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+}
+
+.title-section {
+  margin-top: 3rem;
+}
+
+main h1 {
+  text-align: center;
+  font-size: 12rem;
+  font-weight: 900;
+  letter-spacing: 5px;
+  line-height: 1;
+  background-image: linear-gradient(rgba(133, 133, 133), rgba(255, 255, 255));
+  color: transparent;
+  background-clip: text;
+}
+
+.location {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  position: absolute;
+  top: 8rem;
+  left: 2rem;
+}
+
+.location p {
+  background-image: linear-gradient(to right, #76b0ab, #ffffff, #842626);
+  color: transparent;
+  background-clip: text;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+
+.content-container {
+  margin-top: 0;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 90%;
+  height: 100vh; /* Full viewport height */
+  padding: 0 ; /* Reduced padding for more space */
+  position: relative;
+}
+
+/* Spline container */
+.spline-container {
+  margin-top: 0%;
+  width: 95%; /* Increase width to take more space */
+  height: 100%; /* Full height */
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  z-index: 1;
+}
+
+/* Spline model */
+.planet-3d {
+  margin-top: 0%;
+  width: 100%;
+  height: 130%;
+  position: absolute;
+  transform: translateY(-140px);
+  top: -75px;
+  left: -25;
+  z-index: -1; /* Ensure the Spline model is behind other elements */
+}
+
+/* Start button container */
+.start-button-container {
+  width: 25%; /* Adjust width for proper alignment */
+  display: flex;
+  justify-content: center;
+
+  z-index: 2; /* Ensure the button is above the Spline animation */
+}
+
+/* Get Started button */
+.get-started-btn {
+  display: block;
+  border: 2px solid white; /* Add proper border */
+  border-radius: 0.005 !important; /* Remove rounded corners for rectangular shape */
+  background-color: var(--main-color);
+  align-items: flex-end;
+  color: white;
+  font-size: 2.4rem; /* Increase font size */
+  font-weight: 600;
+  text-align: center;
+  padding: 2rem 4rem; /* Increase padding for a larger button */
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 0 25px var(--main-color);
+}
+
+/* Hover effect for the Get Started button */
+.get-started-btn:hover {
+  background-color: black;
+  color: var(--main-color);
+  box-shadow: 0 0 25px black;
+}
+
+.start-button-container .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color);
+}
+
+/* Animation for the Spline cube */
+@keyframes zoomOut {
+  0% {
+    transform: scale(1) translateZ(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.1) translateZ(-500px); /* Shrinks and moves into the screen */
+    opacity: 0;
+  }
+}
+
+/* Apply the animation to the Spline viewer */
+#spline-viewer {
+  transform-origin: center; /* Ensure the animation originates from the center */
+}
+.planet-wrapper {
+  position: absolute;
+  top: -75px;
+  left: -25px;
+  width: 100%;
+  height: 130%;
+  transform: translateY(-140px);
+  z-index: -1;
+}
+
+/* Adjust the Spline model inside the wrapper */
+.planet-3d {
+  width: 100%;
+  height: 100%;
+}
+
+/* Zoom out animation on wrapper */
+@keyframes zoomOut {
+  0% {
+    transform: scale(1) translateY(-140px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.1) translateY(-140px);
+    opacity: 0;
+  }
+}
+
+/* Trigger class */
+.planet-wrapper.zoom-out {
+  animation: zoomOut 1s ease-in-out forwards;
+  transform-origin: center;
+}
+/*-----------------About us-----------------------*/
+
+section {
+  min-height: 100vh;
+  padding: 10rem 15%;
+}
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15rem;
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center-align the content */
+  text-align: center; /* Center-align the text */
+  gap: 2rem; /* Add spacing between elements */
+}
+
+.home-content h1 {
+  font-size: 7rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  line-height: 1;
+}
+
+.home-content h3 {
+  margin: 1rem 0;
+  font-size: 4rem;
+}
+
+.home-content p {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.8;
+  max-width: 1000px;
+}
+
+.home-img img {
+  position: relative;
+  top: 3rem;
+  width: 32vw;
+  border-radius: 50%;
+  box-shadow: 0 0 25px var (--main-color);
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+
+.home-img img:hover {
+  box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color),
+    0 0 100px var(--main-color);
+}
+
+.social-icons a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  padding: 1rem;
+  background: transparent;
+  border: 2px solid var(--main-color);
+  border-radius: 50%;
+  color: var(--main-color);
+  margin: 3rem 0.5rem;
+  transition: 0.3s ease-in-out;
+}
+
+.social-icons a:hover {
+  color: var(--main-color);
+  background-color: var(--main-color);
+  transform: scale(1.2) translateY(-5px);
+  box-shadow: 0 0 25px var(--main-color);
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--main-color);
+  padding: 1rem 2.8rem;
+  border-color: var(--main-color);
+  box-shadow: 0 0 25px var(--main-color);
+  border-radius: 4rem;
+  font-size: 1.6rem;
+  color: black;
+  border: 2px solid transparent;
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+  transition: 0.3 ease-in-out;
+  cursor: pointer;
+}
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color);
+}
+.btn-group {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.btn-group a:nth-of-type(2) {
+  background-color: black;
+  color: var(--main-color);
+  border: 2px solid var(--main-color);
+  box-shadow: 0 0 25px transparent;
+}
+.btn-group a:nth-of-type(2):hover {
+  box-shadow: 0 0 25px var(--main-color);
+  background-color: var(--main-color);
+  color: black;
+}
+
+.text-animation {
+  font-size: 3rem; /* Adjust font size for better visibility */
+  font-weight: 600;
+  min-width: 275px;
+  text-align: center; /* Center-align the animation text */
+}
+
+.text-animation span {
+  position: relative;
+}
+
+.text-animation span::before {
+  content: "AI/ML Engineer";
+  color: var(--main-color);
+  animation: words 20s infinite;
+}
+.text-animation span::after {
+  content: "";
+  background-color: var(--bg-color);
+  position: absolute;
+  width: calc(100% + 8px);
+  height: 100%;
+  border-left: 3px solid var(--bg-color);
+  right: -8px;
+  animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
+  visibility: hidden;
+}
+
+@keyframes cursor {
+  to {
+    border-left: 2px solid var(--main-color);
+  }
+}
+
+@keyframes words {
+  0%,
+  20% {
+    content: "Data Analyst";
+  }
+  21%,
+  40% {
+    content: "AI Engineer";
+  }
+  41%,
+  60% {
+    content: "ML Engineer";
+  }
+  61%,
+  80% {
+    content: "Mobile Developer";
+  }
+  81%,
+  100% {
+    content: "Business Analyst";
+  }
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+    visibility: visible; /* Make cursor visible when typing starts */
+  }
+  10%,
+  15%,
+  30%,
+  35%,
+  50%,
+  55%,
+  70%,
+  90%,
+  95% {
+    width: 0;
+  }
+  5%,
+  20%,
+  25%,
+  40%,
+  45%,
+  60%,
+  65%,
+  80%,
+  85% {
+    width: calc(100% + 8px);
+  }
+}
+
+.heading {
+  font-size: 8rem;
+  text-align: center;
+  margin: 5rem 0;
+}
+
+.education {
+  padding: 100px 15px;
+  background: var(--second-bg-color);
+}
+
+.education h2 {
+  margin-bottom: 5rem;
+}
+
+.timeline-items {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.timeline-items::before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  background-color: var(--main-color);
+  left: calc(50% - 1px);
+}
+
+.timeline-item {
+  margin-bottom: 40px;
+  width: 100%;
+  position: relative;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-item:nth-child(odd) {
+  padding-right: calc(50% + 30px);
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+  padding-left: calc(50% + 30px);
+}
+
+.timeline-dot {
+  height: 21px;
+  width: 21px;
+  background-color: var(--main-color);
+  box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color);
+  position: absolute;
+  left: calc(50% - 8px);
+  border-radius: 50%;
+  top: 10px;
+}
+
+.timeline-date {
+  font-size: 20px;
+  font-weight: 800;
+  color: white;
+  margin: 6px 0 15px;
+}
+
+.timeline-content {
+  background-color: var(--bg-color);
+  border: 3px solid var(--main-color);
+  padding: 30px 50px;
+  border-radius: 4rem;
+  box-shadow: 0 0 10px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.timeline-content:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px var(--main-color);
+}
+
+.timeline-content h3 {
+  font-size: 20px;
+  background: linear-gradient(270deg, #df8908 10%, #ff1d15 100%);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  margin: 0 0 10px;
+  font-weight: 1000;
+}
+
+.timeline-content p {
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 22px;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--bg-color);
+  width: 50px;
+}
+
+@media (max-width: 768px) {
+  .timeline-items {
+    display: block; /* Stack items vertically */
+  }
+
+  .timeline-items::before {
+    left: 10px; /* Move the timeline line to the left */
+  }
+
+  .timeline-item {
+    padding: 0 20px; /* Add padding for smaller screens */
+    text-align: left; /* Align text to the left */
+  }
+
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    padding: 0 20px; /* Remove alternating padding */
+  }
+
+  .timeline-dot {
+    left: 0; /* Align dots with the timeline line */
+  }
+
+  .timeline-content {
+    margin-left: 40px; /* Add space between the timeline line and content */
+  }
+}
+
+/*-----------------Services-----------------------*/
+
+.heading {
+  text-align: center;
+  font-size: 7rem;
+  margin: 5rem 0;
+}
+
+.services {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.services h2 {
+  color: var(--text-color);
+}
+
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.service-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--main-color);
+  height: 600px;
+  border-radius: 3rem;
+  cursor: pointer;
+  border: 5px solid transparent;
+  transition: 0.4s ease-in-out;
+}
+
+.service-box:hover {
+  background: var(--second-bg-color);
+  color: var (--main-color);
+  border: 5px solid var(--main-color);
+  transform: scale(1.03);
+}
+
+.service-info {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+}
+
+.service-info h4 {
+  font-size: 4rem;
+  margin: 2rem 0;
+  font-weight: 800;
+}
+
+.service-info p {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.service-info i {
+  font-size: 8rem;
+}
+
+/*----------------Projects-------------------*/
+
+.projects {
+  background-color: var(--second-bg-color);
+}
+
+.projects-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust grid for responsiveness */
+  place-items: center;
+  gap: 2rem; /* Reduce gap for smaller screens */
+  row-gap: 3rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--bg-color);
+  border: 2px solid var(--main-color);
+  border-radius: 3rem;
+  gap: 2rem;
+  padding: 5rem 2rem;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 0 5px var(--main-color);
+  transition: 0.3s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 0 25px var(--main-color), 0 0 50px var(--main-color);
+  transform: scale(1.02);
+}
+
+.project-card img {
+  max-width: 300px;
+  border-radius: 2rem;
+  object-fit: cover;
+}
+
+.project-card h3 {
+  font-size: 3rem;
+  background: linear-gradient(270deg, #df8908 10%, #ff1d15 100%);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.project-card p {
+  font-size: 1.6rem;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .projects-box {
+    grid-template-columns: 1fr; /* Stack projects vertically on smaller screens */
+    gap: 1.5rem; /* Reduce gap between project cards */
+  }
+
+  .project-card {
+    width: 90%; /* Make project cards take up most of the screen width */
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-box {
+    grid-template-columns: 1fr; /* Keep projects stacked vertically */
+    gap: 1rem; /* Further reduce gap for very small screens */
+  }
+
+  .project-card {
+    width: 95%; /* Slightly reduce width for very small screens */
+  }
+}
+
+.contact {
+  background-color: var(--bg-color);
+}
+
+.contact h2 {
+  margin-bottom: 3rem;
+  color: var(--text-color);
+}
+
+.contact form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin: 5rem 0;
+  text-align: center;
+}
+
+.contact form .input-box input,
+.contact form textarea {
+  width: 100%;
+  padding: 2.5rem;
+  font-size: 1.8rem;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  border-radius: 2rem;
+  border: 2px solid var(--main-color);
+  margin: 1.5rem 0;
+  resize: none;
+}
+
+.footer {
+  background-color: var(--second-bg-color);
+  padding: 50px 0;
+}
+
+.footer .social-icons {
+  text-align: center;
+}
+.footer ul {
+  text-align: center;
+  font-size: 1.8rem;
+}
+.footer ul li {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.footer ul li a {
+  color: white;
+  border-bottom: 3px solid transparent;
+  transition: 0.3s ease-in-out;
+}
+
+.footer ul li:hover {
+  border-bottom: 3px solid var(--main-color);
+}
+
+.footer .copyright {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 16px;
+}
+
+@media (max-width: 1285px) {
+  #menu-icon {
+    display: block;
+  }
+
+  .navbar {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 50%;
+    padding: 1rem 3rem;
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom-left-radius: 2rem;
+    border-left: 2px solid var(--main-color);
+    border-bottom: 2px solid var(--main-color);
+    display: none;
+  }
+
+  .navbar a {
+    display: block;
+    font-size: 2rem;
+    margin: 3rem 0;
+    color: var(--text-color);
+  }
+
+  .navbar.active {
+    display: block;
+  }
+
+  .gradient-btn {
+    display: none;
+  }
+
+  .home {
+    flex-direction: column-reverse;
+    margin: 5rem 0;
+    gap: 5rem;
+  }
+
+  .home-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .home-img img {
+    width: 56vw;
+  }
+}

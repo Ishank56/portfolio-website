@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
+  </head>
+  <body>
+    <main>
+      <div class="content-container">
+        <div class="start-button-container">
+          <a href="portfolio.html" class="btn get-started-btn" id="start-button">Get Started</a>
+        </div>
+
+        <div class="spline-container" id="spline-container">
+          <div class="planet-wrapper" id="planet-wrapper">
+            <spline-viewer
+              id="spline-viewer"
+              url="https://prod.spline.design/bM2rLAdvfiSJ6MYy/scene.splinecode"
+              class="planet-3d"
+              camera-controls
+            ></spline-viewer>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="transition.js"></script>
+  </body>
+</html>
