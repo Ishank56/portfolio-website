@@ -542,31 +542,27 @@ section {
   width: 50px;
 }
 
-@media (max-width: 768px) {
-  .timeline-items {
-    display: block; /* Stack items vertically */
-  }
+@media (max-width: 991px) {
+  .header{
+    padding: 2rem 3%;
 
-  .timeline-items::before {
-    left: 10px; /* Move the timeline line to the left */
   }
-
-  .timeline-item {
-    padding: 0 20px; /* Add padding for smaller screens */
-    text-align: left; /* Align text to the left */
+  section{
+    padding: 10rem 3% 2rem;
   }
-
+  .timeline-items::before{
+    left:7px;
+  }
+  .timeline-item:nth-child(odd){
+    padding-right: 0;
+    text-align: left;
+  }
   .timeline-item:nth-child(odd),
-  .timeline-item:nth-child(even) {
-    padding: 0 20px; /* Remove alternating padding */
+  .timeline-item:nth-child(even){
+    padding-left: 37px;
   }
-
-  .timeline-dot {
-    left: 0; /* Align dots with the timeline line */
-  }
-
-  .timeline-content {
-    margin-left: 40px; /* Add space between the timeline line and content */
+  .timeline-dot{
+    left:0;
   }
 }
 
